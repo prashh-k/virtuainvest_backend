@@ -1,6 +1,6 @@
 package com.example.virtuainvest_backend.virtuainvest_backend.Service;
 
-import com.example.virtuainvest_backend.virtuainvest_backend.Entity.User;
+import com.example.virtuainvest_backend.virtuainvest_backend.Model.User;
 
 public interface UserService {
 

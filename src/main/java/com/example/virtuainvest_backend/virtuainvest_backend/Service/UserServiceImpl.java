@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.virtuainvest_backend.virtuainvest_backend.Entity.User;
+import com.example.virtuainvest_backend.virtuainvest_backend.Model.User;
 import com.example.virtuainvest_backend.virtuainvest_backend.Repository.UserRepo;
 
 import jakarta.transaction.Transactional;

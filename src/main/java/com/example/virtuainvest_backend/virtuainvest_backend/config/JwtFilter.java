@@ -16,7 +16,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import com.example.virtuainvest_backend.virtuainvest_backend.util.JwtUtil;
-
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
@@ -29,6 +28,13 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
+        String path = request.getRequestURI();
+        // Skip the JWT filter for login and register paths
+        if (path.equals("/api/auth/login") || path.equals("/api/auth/register")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         String authHeader = request.getHeader("Authorization");
         String token = null;
         String username = null;

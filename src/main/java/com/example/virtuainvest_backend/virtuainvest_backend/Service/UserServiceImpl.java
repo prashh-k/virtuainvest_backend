@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.virtuainvest_backend.virtuainvest_backend.Exception.UserAlreadyExistsException;
 import com.example.virtuainvest_backend.virtuainvest_backend.Model.User;
 import com.example.virtuainvest_backend.virtuainvest_backend.Repository.UserRepo;
 
@@ -23,10 +25,17 @@ public class UserServiceImpl implements UserService {
         this.userRepo = userRepo;
     }
 
-    @Override
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     public User register(User user) {
-        return userRepo.save(user);
+    if (userRepo.existsByUsername(user.getUsername())) {
+        throw new UserAlreadyExistsException("User with username " + user.getUsername() + " already exists.");
     }
+    user.setPassword(passwordEncoder.encode(user.getPassword())); // ✅ correct way
+    return userRepo.save(user);
+}
+
 
     @Override
     public User getUserByUsername(String username) {

@@ -16,7 +16,7 @@ import io.jsonwebtoken.security.Keys;
 
 @Component
 public class JwtService {
-    private final String SECRET_KEY = "yourSecretKey";
+    private final String SECRET_KEY = "bXlTdXBlclNlY3JldEtleU15U3VwZXJTZWNyZXRLZXk="; // Base64 encoded key
     private final long EXPIRATION_TIME = 86400000; // 24 hours
 
     private SecretKey getSigningKey() {

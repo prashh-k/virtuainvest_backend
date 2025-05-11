@@ -1,7 +1,5 @@
 package com.example.virtuainvest_backend.virtuainvest_backend.Model;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,7 +26,7 @@ public class User {
 
     public User(String email, String password, String username, String mobileNumber, String role) {
         this.email = email;
-        this.password = new BCryptPasswordEncoder().encode(password); // Hash password before saving
+        this.password = password;
         this.username = username;
         this.mobileNumber = mobileNumber;
         this.role = role;
@@ -43,7 +41,7 @@ public class User {
     public void setEmail(String email) { this.email = email; }
 
     public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = new BCryptPasswordEncoder().encode(password); }
+    public void setPassword(String password) { this.password = password ;}
 
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }

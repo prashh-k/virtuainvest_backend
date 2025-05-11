@@ -1,0 +1,21 @@
+curl https://loca.lt/mytunnelpassword
+lt --port 8080 --subdomain virtuainvest
+
+
+
+
+describe users;
+delete table users;
+MySQL -u root -p 
+
+
+
+
+App Name	 Api Type	    API Key 	                   Secret Key 				Status
+
+
+VirtuaInvest      Market	    tNHVU6a7 	       8a041233-a4f3-4776-90e5-97370770582c 	        Active
+
+TOTP
+
+AHJGJJSQJTM7YVU2NZYXKRYIQ4
